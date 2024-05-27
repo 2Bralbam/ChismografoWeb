@@ -1,0 +1,93 @@
+<style>
+    
+    .container{
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        
+    }
+    img{
+        width: 250px;
+        height: 200px;
+
+        max-width: 400px;
+        border-radius: 10px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: fitcon;
+    }
+    .btnsContainer{
+        display: flex;
+        justify-content: space-evenly;
+        width: 150px;
+    } 
+    button{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        margin: 10px;
+        width: 200px;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+    .descInput{
+        height: 190px;
+        text-overflow: clip;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    .btnConfirmar{
+        display: none;
+    }
+    .confirmMessage{
+        display: none;
+        top: 0;
+        position: absolute;
+        background-color: #333;
+        color: white;
+        width: 100%;
+        height: 100%;
+        
+    }
+    
+</style>
+<div>
+    <h1>MI PULGA ONLINE</h1>
+    <form class="container">
+        <h2>Titulo</h2>
+        <input type="hidden" value={{Producto.id}} disabled id="idInput"/>
+        <input type="text" value={{Producto.title}} disabled id="titleInput"/>
+        <label>Link de imagen</label>
+        <textarea class="descInput" disabled id="descriptionInput">{{Producto.description}}</textarea>
+        <input type="text" value={{Producto.price}} disabled id="priceInput"/>
+        <input type="text" value={{Producto.images[0]}} disabled id="imageInput"/>
+        <img src="{{Producto.images[0]}}" alt="Imagen del producto" style="width: 100%; height: 100%;">
+    </form>
+    <div class="btnsContainer">
+        <button (click)="EditarMethod()">Editar</button>
+        <button (click)="EliminarMethod()">Eliminar</button>
+        <button (click)="ConfirmarEditarMethod()" class="btnConfirmar" id="btnConfirmar">Confirmar</button>
+    </div>
+</div>  
+<div class="confirmMessage" id="confirmMessage">
+    <div class="confirmMessageContainer">
+        <h2>¿Estas seguro de que deseas eliminar este producto?</h2>
+        <button (click)="ConfirmarEliminarMethod()">Si</button>
+        <button (click)="HideConfirmMessage()">No</button>
+    </div>
+    
+
+</div>

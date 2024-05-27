@@ -1,0 +1,69 @@
+
+<style>
+    img{
+        aspect-ratio: 16/9;
+        width: 250px;
+        height: 100;
+        border-radius: 10px;
+    }
+    .classDescription{
+        padding: 15px;
+        text-align: center;
+    }
+    .card{
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+        border-radius: 10px;
+        margin: 10px;
+        width: fit-content;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+    .card:hover{
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.733);
+        cursor: pointer;
+    }
+
+    .scrollableCat {
+        display: flex;
+        overflow-x: auto;
+    }
+    .container{
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+    }
+    .categoriasContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .categoriasContainer>a{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+        margin: 10px;
+        width: 50%;
+    }
+    h1,h2{
+        text-align: center;
+    
+    }
+</style>
+<h1>MI PULGA ONLINE</h1>
+<h2>Categorias</h2>
+<div class="categoriasContainer">
+        <a *ngFor="let categoria of categorias" href="/categorias?id={{categoria.id}}">
+            {{categoria.name}}
+        </a>
+    
+    
+</div>

@@ -1,0 +1,105 @@
+
+<style>
+    img{
+        aspect-ratio: 16/9;
+        width: 250px;
+        height: 200px;
+        min-width: 250px;
+        min-height: 200px;
+        border-radius: 10px;
+    }
+    .classDescription{
+        padding: 15px;
+        text-align: center;
+    }
+    .card{
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+        border-radius: 10px;
+        margin: 10px;
+        width: 250px;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+    .card:hover{
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.733);
+        cursor: pointer;
+    }
+
+    .scrollableCat>div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .container{
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.151);
+    }
+    h4,p{
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    a{
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: black;
+    }
+    .scrollableCat {
+  position: relative; /* Esto es necesario para que <a> se posicione en relación a este contenedor */
+}
+
+.scrollableCat a {
+  display: block; /* Hace que <a> se comporte como un elemento de bloque */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 100%; /* Ocupa toda la altura disponible */
+}
+.headerIn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding: 2px;
+}
+.aggBtn{
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    width: 120px;
+    text-align: center;
+}
+</style>
+<div class="headerIn">
+    <h1>MI PULGA ONLINE</h1>
+    <a class="aggBtn" href="agregar?id={{categoryId}}">Agregar producto</a>
+</div>
+
+<div class="mainContainer">
+    <div class="container">
+        <div class="scrollableCat">
+            <div *ngIf="productos && productos.length > 0; else noProductos">
+                <div class="card" *ngFor="let producto of productos">
+                    <a href="producto?id={{producto.id}}">
+                        <img src="{{producto.images}}" alt="NO IMAGE" />
+                        <div class="classDescription">
+                            <h4>{{producto.title}}</h4>
+                            <p class="price">{{producto.price}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <ng-template #noProductos>
+                <p>No hay productos disponibles.</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
