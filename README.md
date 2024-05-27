@@ -1,4 +1,5 @@
-# ChismografoWeb
+# NO ES UN CHISMOGRAFO
+Debido a falta de tiempo y errores en la api tuve que continuar con la api gratuita de FAKESTORE API
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
 
